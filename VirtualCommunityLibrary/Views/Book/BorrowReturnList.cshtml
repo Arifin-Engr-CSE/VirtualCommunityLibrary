@@ -1,0 +1,292 @@
+﻿<script src="~/Scripts/VCLScripts.js"></script>
+
+@model VirtualCommunityLibrary.Models.ItemBorrowHistory
+@{
+    ViewBag.Title = "BorrowReturnList";
+}
+
+<h2 class="text-center" style="padding-bottom:20px">Borrow Return List</h2>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Item.ItemID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Item.ItemParty.ItemPartyName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Item.ItemLibraryLocation.LibraryLocation)
+        </th>
+        <th>Action</th>
+    </tr>
+
+    @foreach (var item in Model.itemPhotos)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Item.ItemName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Item.ItemParty.ItemPartyName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Item.ItemLibraryLocation.LibraryLocation)
+            </td>
+            <td>
+                @*<a href="" class="btn btn-primary btn-sm" name="Name"><i class="">Borrow Now</i></a>*@
+                @if (item.Item.ItemBorrowStatus.BorrowStatus == "Borrowed" || item.Item.ItemBorrowStatus.BorrowStatus == "borrowed")
+                {
+                    <button class="btn btn-info" data-toggle="modal" data-target="#myModal" id="button1">
+                        Return
+                    </button>
+                }
+                else
+                {
+                    <button class="btn btn-info" data-toggle="modal" data-target="#myModal" id="button1">
+                        Borrow
+                    </button>
+                }
+
+                <button class="btn btn-info" data-toggle="modal" data-target="#borrowHistoryModal" id="button1">
+                    History
+                </button>
+            </td>
+        </tr>
+    }
+
+</table>
+
+<div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog">
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+
+                @foreach (var item in Model.itemPhotos)
+                {
+                    if (item.Item.ItemBorrowStatus.BorrowStatus == "Borrowed" || item.Item.ItemBorrowStatus.BorrowStatus == "borrowed")
+                    {
+
+                        <h3 class="text-center">Return Form</h3>
+                    }
+                    else
+                    {
+                        <h3 class="text-center">Borrow Form</h3>
+                    }
+
+                }
+
+            </div>
+            <div class="modal-body">
+                @*@Html.BeginForm("BorrowReturnList", "Book",FormMethod.Post)*@
+                <form method="post" action="/Book/BorrowReturnList">
+                    @foreach (var item in Model.itemPhotos)
+                    {
+                        if (item.Item.ItemBorrowStatus.BorrowStatus == "Borrowed" || item.Item.ItemBorrowStatus.BorrowStatus == "borrowed")
+                        {
+                            //VirtualCommunityLibrary.DatabaseContext.LibraryDbContext db = new VirtualCommunityLibrary.DatabaseContext.LibraryDbContext();
+                            //dynamic bid = db.itemBorrowStatuses.Where(item.Item.ItemBorrowStatus.BorrowStatus = "Borrowed");
+                            //var id = db.items.Where(item.Item.ItemID == Model.ItemID);
+
+                            Model.statusName = "Available";
+                        }
+                        else
+                        {
+                            Model.statusName = "Borrowed";
+                        }
+                        Model.ItemID = item.Item.ItemID;
+                        Model.ItemPartyID = item.Item.ItemParty.ItemPartyID;
+                        Model.LibraryLocationID = item.Item.ItemLibraryLocation.LibraryLocationID;
+
+                        <div class="form-group">
+                            @Html.EditorFor(model => model.statusName, new { htmlAttributes = new { @class = "form-control", type = "hidden" } })
+                        </div>
+
+                        <div class="form-group">
+                            @Html.EditorFor(model => model.ItemID, new { htmlAttributes = new { @class = "form-control", type = "hidden" } })
+                        </div>
+
+                        <div class="form-group">
+                            @Html.EditorFor(model => model.ItemID, new { htmlAttributes = new { @class = "form-control", type = "hidden" } })
+                        </div>
+
+                        <div class="form-group">
+                            @Html.EditorFor(model => model.ItemPartyID, new { htmlAttributes = new { @class = "form-control", type = "hidden" } })
+                        </div>
+
+                        <div class="form-group">
+                            @Html.EditorFor(model => model.LibraryLocationID, new { htmlAttributes = new { @class = "form-control", type = "hidden" } })
+                        </div>
+
+                        <div class="form-group">
+                            @Html.LabelFor(model => item.Item.ItemName, htmlAttributes: new { @class = "control-label col-md-4 readonly" })
+                            <div class="col-md-8">
+                                @Html.EditorFor(model => item.Item.ItemName, new { htmlAttributes = new { @class = "form-control", ReadOnly = "true" } })
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            @Html.LabelFor(model => item.Item.ItemParty.ItemPartyName, htmlAttributes: new { @class = "control-label col-md-4" })
+                            <div class="col-md-8">
+                                @Html.EditorFor(model => item.Item.ItemParty.ItemPartyName, new { htmlAttributes = new { @class = "form-control", ReadOnly = "true" } })
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            @Html.LabelFor(model => item.Item.ItemLibraryLocation.LibraryLocation, htmlAttributes: new { @class = "control-label col-md-4" })
+                            <div class="col-md-8">
+                                @Html.EditorFor(model => item.Item.ItemLibraryLocation.LibraryLocation, new { htmlAttributes = new { @class = "form-control", ReadOnly = "true" } })
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            @if (item.Item.ItemBorrowStatus.BorrowStatus == "Borrowed" || item.Item.ItemBorrowStatus.BorrowStatus == "borrowed")
+                            {
+                                <div class="col-md-10" style="display:none">
+                                    @Html.EditorFor(model => model.BorrowDate, new { htmlAttributes = new { @class = "form-control", type = "Date" } })
+                                    @Html.ValidationMessageFor(model => model.BorrowDate, "", new { @class = "text-danger" })
+                                </div>
+                            }
+                            else
+                            {
+                                @Html.LabelFor(model => model.BorrowDate, htmlAttributes: new { @class = "control-label col-md-2" })
+                                <div class="col-md-10">
+                                    @Html.EditorFor(model => model.BorrowDate, new { htmlAttributes = new { @class = "form-control brwDate"} })
+                                    @Html.ValidationMessageFor(model => model.BorrowDate, "", new { @class = "text-danger" })
+                                </div>
+                            }
+
+                        </div>
+
+                        <div class="form-group">
+
+                            @if (item.Item.ItemBorrowStatus.BorrowStatus == "Borrowed" || item.Item.ItemBorrowStatus.BorrowStatus == "borrowed")
+                            {
+                                <div class="col-md-10" style="display:none">
+                                    @Html.DropDownListFor(model => model.BorrowedForHowManyDays, Model.BorrowDayList, "--Select--", htmlAttributes: new { @class = "form-control", type = "hidden" })
+                                </div>
+                            }
+                            else
+                            {
+                                <label class="control-label col-md-2">Days</label>
+                                <div class="col-md-10">
+                                    @Html.DropDownListFor(model => model.BorrowedForHowManyDays, Model.BorrowDayList, "--Select--", htmlAttributes: new { @class = "form-control nmbDays" })
+                                </div>
+                            }
+                        </div>
+                        DateTime today = DateTime.Today;
+                        //var currentDate = @dateTime.ToString("dd / MM / yyyy");
+                        <div class="form-group">
+                            @if (item.Item.ItemBorrowStatus.BorrowStatus == "Borrowed" || item.Item.ItemBorrowStatus.BorrowStatus == "borrowed")
+                            {
+                                @Html.LabelFor(model => model.ReturnDate, htmlAttributes: new { @class = "control-label col-md-2" })
+                                <div class="col-md-10">
+                                    @Html.EditorFor(model => model.ReturnDate, new { htmlAttributes = new { @class = "form-control datePicker", value = "" } })
+                                    @Html.ValidationMessageFor(model => model.ReturnDate, "", new { @class = "text-danger" })
+                                </div>
+                            }
+                            else
+                            {
+                                @Html.LabelFor(model => model.ReturnDate, htmlAttributes: new { @class = "control-label col-md-2" })
+                                <div class="col-md-10">
+                                    @Html.EditorFor(model => model.ReturnDate, new { htmlAttributes = new { @class = "form-control datePicker1 ", value = "", ReadOnly = "true" } })
+                                    @Html.ValidationMessageFor(model => model.ReturnDate, "", new { @class = "text-danger" })
+                                </div>
+                            }
+
+                        </div>
+                    }
+                    <div>
+                        <div class="form-group">
+                            <div class="col-md-offset-2 col-md-10">
+                                <input type="submit" value="Submit" class="btn btn-success" />
+                            </div>
+                        </div>
+                    </div>
+                </form>
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+@*<div class="modal fade" id="borrowHistoryModal" role="dialog">
+    <div class="modal-dialog .modal-dialog-scrollable modal-dialog-centered modal-xl">
+
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Borrow Return History</h3>
+            </div>
+            <div class="modal-body">
+                @{int sl = 1; }
+                <table class="table">
+                    <tr>
+                        <th>
+                            Sl No.
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.BorrowDate)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.BorrowedForHowManyDays)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.ReturnDate)
+                        </th>
+                        <th>
+                            Status
+                        </th>
+                        <th>Action</th>
+                    </tr>
+
+                    @foreach (var item in Model.itemBorrowHistories)
+                    {
+                        <tr>
+                            <td>
+                                @(sl++)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.BorrowDate)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.BorrowedForHowManyDays)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.ReturnDate)
+                            </td>
+                            <td>
+                                @if (item.BorrowDate== null)
+                                {
+                                    <p>Returned</p>
+                                }
+                                else
+                                {
+                                    <p>Borrowed</p>    
+                                }
+                            </td>
+                            <td>
+                                <button class="btn btn-info" data-toggle="modal" data-target="#" id="button1">
+                                    Edit
+                                </button>
+                            </td>
+                        </tr>
+                    }
+
+                </table>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+
+    </div>
+</div>*@
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

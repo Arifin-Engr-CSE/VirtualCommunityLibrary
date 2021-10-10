@@ -1,0 +1,1108 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.Default.props" Condition="Exists('$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.Default.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{6B29787C-516F-4DE3-B70A-37DA3119043C}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>VirtualCommunityLibrary</RootNamespace>
+    <AssemblyName>VirtualCommunityLibrary</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>true</UseIISExpress>
+    <Use64BitIISExpress />
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+    <TypeScriptToolsVersion>3.1</TypeScriptToolsVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="AutoMapper, Version=10.0.0.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
+      <HintPath>..\packages\AutoMapper.10.1.1\lib\net461\AutoMapper.dll</HintPath>
+    </Reference>
+    <Reference Include="Dapper, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Dapper.2.0.78\lib\net461\Dapper.dll</HintPath>
+    </Reference>
+    <Reference Include="jose-jwt, Version=2.3.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\jose-jwt.2.3.0\lib\net461\jose-jwt.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Bcl.AsyncInterfaces, Version=1.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Bcl.AsyncInterfaces.1.1.1\lib\net461\Microsoft.Bcl.AsyncInterfaces.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Bcl.HashCode, Version=1.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Bcl.HashCode.1.1.1\lib\net461\Microsoft.Bcl.HashCode.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.EntityFrameworkCore, Version=3.1.12.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.EntityFrameworkCore.3.1.12\lib\netstandard2.0\Microsoft.EntityFrameworkCore.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.EntityFrameworkCore.Abstractions, Version=3.1.12.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.EntityFrameworkCore.Abstractions.3.1.12\lib\netstandard2.0\Microsoft.EntityFrameworkCore.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Caching.Abstractions, Version=3.1.12.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.Caching.Abstractions.3.1.12\lib\netstandard2.0\Microsoft.Extensions.Caching.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Caching.Memory, Version=3.1.12.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.Caching.Memory.3.1.12\lib\netstandard2.0\Microsoft.Extensions.Caching.Memory.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Configuration, Version=3.1.12.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.Configuration.3.1.12\lib\netstandard2.0\Microsoft.Extensions.Configuration.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Configuration.Abstractions, Version=3.1.12.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.Configuration.Abstractions.3.1.12\lib\netstandard2.0\Microsoft.Extensions.Configuration.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Configuration.Binder, Version=3.1.12.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.Configuration.Binder.3.1.12\lib\netstandard2.0\Microsoft.Extensions.Configuration.Binder.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Configuration.FileExtensions, Version=1.1.2.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.Configuration.FileExtensions.1.1.2\lib\net451\Microsoft.Extensions.Configuration.FileExtensions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Configuration.Json, Version=1.1.2.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.Configuration.Json.1.1.2\lib\net451\Microsoft.Extensions.Configuration.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.DependencyInjection, Version=3.1.12.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.DependencyInjection.3.1.12\lib\net461\Microsoft.Extensions.DependencyInjection.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.DependencyInjection.Abstractions, Version=3.1.12.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.DependencyInjection.Abstractions.3.1.12\lib\netstandard2.0\Microsoft.Extensions.DependencyInjection.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.FileProviders.Abstractions, Version=1.1.1.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.FileProviders.Abstractions.1.1.1\lib\netstandard1.0\Microsoft.Extensions.FileProviders.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.FileProviders.Physical, Version=1.1.1.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.FileProviders.Physical.1.1.1\lib\net451\Microsoft.Extensions.FileProviders.Physical.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.FileSystemGlobbing, Version=1.1.1.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.FileSystemGlobbing.1.1.1\lib\net45\Microsoft.Extensions.FileSystemGlobbing.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Logging, Version=3.1.12.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.Logging.3.1.12\lib\netstandard2.0\Microsoft.Extensions.Logging.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Logging.Abstractions, Version=3.1.12.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.Logging.Abstractions.3.1.12\lib\netstandard2.0\Microsoft.Extensions.Logging.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Options, Version=3.1.12.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.Options.3.1.12\lib\netstandard2.0\Microsoft.Extensions.Options.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Primitives, Version=3.1.12.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.Primitives.3.1.12\lib\netstandard2.0\Microsoft.Extensions.Primitives.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.IdentityModel.Logging, Version=1.1.2.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.IdentityModel.Logging.1.1.2\lib\net451\Microsoft.IdentityModel.Logging.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.IdentityModel.Tokens, Version=5.1.2.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.IdentityModel.Tokens.5.1.2\lib\net451\Microsoft.IdentityModel.Tokens.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Win32.Primitives, Version=4.0.2.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Win32.Primitives.4.3.0\lib\net46\Microsoft.Win32.Primitives.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Nexmo.Api, Version=5.2.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Nexmo.Csharp.Client.5.2.0\lib\net46\Nexmo.Api.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.AppContext, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.AppContext.4.3.0\lib\net46\System.AppContext.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Buffers, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Buffers.4.5.1\lib\net461\System.Buffers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Collections.Immutable, Version=1.2.5.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Collections.Immutable.1.7.1\lib\net461\System.Collections.Immutable.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ComponentModel.Annotations, Version=4.2.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.ComponentModel.Annotations.5.0.0\lib\net461\System.ComponentModel.Annotations.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ComponentModel.Composition" />
+    <Reference Include="System.Console, Version=4.0.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Console.4.3.0\lib\net46\System.Console.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.SqlClient, Version=4.6.1.2, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Data.SqlClient.4.8.2\lib\net461\System.Data.SqlClient.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Diagnostics.DiagnosticSource, Version=4.0.5.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Diagnostics.DiagnosticSource.4.7.1\lib\net46\System.Diagnostics.DiagnosticSource.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Globalization.Calendars, Version=4.0.2.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Globalization.Calendars.4.3.0\lib\net46\System.Globalization.Calendars.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.IdentityModel.Tokens.Jwt, Version=5.1.2.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.IdentityModel.Tokens.Jwt.5.1.2\lib\net451\System.IdentityModel.Tokens.Jwt.dll</HintPath>
+    </Reference>
+    <Reference Include="System.IO.Compression, Version=4.1.2.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.IO.Compression.4.3.0\lib\net46\System.IO.Compression.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.IO.Compression.FileSystem" />
+    <Reference Include="System.IO.Compression.ZipFile, Version=4.0.2.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.IO.Compression.ZipFile.4.3.0\lib\net46\System.IO.Compression.ZipFile.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.IO.FileSystem, Version=4.0.2.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.IO.FileSystem.4.3.0\lib\net46\System.IO.FileSystem.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.IO.FileSystem.Primitives, Version=4.0.2.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.IO.FileSystem.Primitives.4.3.0\lib\net46\System.IO.FileSystem.Primitives.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Memory, Version=4.0.1.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Memory.4.5.4\lib\net461\System.Memory.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net" />
+    <Reference Include="System.Net.Http, Version=4.1.1.3, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Net.Http.4.3.4\lib\net46\System.Net.Http.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Net.Sockets, Version=4.1.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Net.Sockets.4.3.0\lib\net46\System.Net.Sockets.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Numerics.Vectors, Version=4.1.4.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Numerics.Vectors.4.5.0\lib\net46\System.Numerics.Vectors.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=4.0.6.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Runtime.CompilerServices.Unsafe.4.7.1\lib\net461\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.InteropServices.RuntimeInformation, Version=4.0.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Runtime.InteropServices.RuntimeInformation.4.3.0\lib\net45\System.Runtime.InteropServices.RuntimeInformation.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Security.Cryptography.Algorithms, Version=4.1.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Security.Cryptography.Algorithms.4.3.0\lib\net461\System.Security.Cryptography.Algorithms.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Security.Cryptography.Encoding, Version=4.0.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Security.Cryptography.Encoding.4.3.0\lib\net46\System.Security.Cryptography.Encoding.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Security.Cryptography.Primitives, Version=4.0.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Security.Cryptography.Primitives.4.3.0\lib\net46\System.Security.Cryptography.Primitives.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Security.Cryptography.X509Certificates, Version=4.1.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Security.Cryptography.X509Certificates.4.3.0\lib\net461\System.Security.Cryptography.X509Certificates.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Threading.Tasks.Extensions, Version=4.2.0.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Threading.Tasks.Extensions.4.5.4\lib\net461\System.Threading.Tasks.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest">
+    </Reference>
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.4\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.2.4.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.4\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Optimization">
+      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.4\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.4\lib\net45\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.4\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.4\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\packages\Newtonsoft.Json.11.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.ReaderWriter, Version=4.1.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Xml.ReaderWriter.4.3.0\lib\net46\System.Xml.ReaderWriter.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Twilio, Version=5.57.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Twilio.5.57.0\lib\net451\Twilio.dll</HintPath>
+    </Reference>
+    <Reference Include="Twilio.AspNet.Common, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Twilio.AspNet.Common.5.37.2\lib\net45\Twilio.AspNet.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Twilio.AspNet.Mvc, Version=5.37.2.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Twilio.AspNet.Mvc.5.37.2\lib\net451\Twilio.AspNet.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="WebGrease">
+      <Private>True</Private>
+      <HintPath>..\packages\WebGrease.1.6.0\lib\WebGrease.dll</HintPath>
+    </Reference>
+    <Reference Include="Antlr3.Runtime">
+      <Private>True</Private>
+      <HintPath>..\packages\Antlr.3.5.0.2\lib\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Core">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Core.2.2.2\lib\net45\Microsoft.AspNet.Identity.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Owin">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Owin.2.2.2\lib\net45\Microsoft.AspNet.Identity.Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.EntityFramework">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.EntityFramework.2.2.2\lib\net45\Microsoft.AspNet.Identity.EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="Owin">
+      <HintPath>..\packages\Owin.1.0\lib\net40\Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin">
+      <HintPath>..\packages\Microsoft.Owin.4.0.0\lib\net451\Microsoft.Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Host.SystemWeb">
+      <HintPath>..\packages\Microsoft.Owin.Host.SystemWeb.4.0.0\lib\net451\Microsoft.Owin.Host.SystemWeb.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security">
+      <HintPath>..\packages\Microsoft.Owin.Security.4.0.0\lib\net451\Microsoft.Owin.Security.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Cookies">
+      <HintPath>..\packages\Microsoft.Owin.Security.Facebook.4.0.0\lib\net451\Microsoft.Owin.Security.Facebook.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Cookies">
+      <HintPath>..\packages\Microsoft.Owin.Security.Cookies.4.0.0\lib\net451\Microsoft.Owin.Security.Cookies.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Google">
+      <HintPath>..\packages\Microsoft.Owin.Security.Google.4.0.0\lib\net451\Microsoft.Owin.Security.Google.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Twitter">
+      <HintPath>..\packages\Microsoft.Owin.Security.Twitter.4.0.0\lib\net451\Microsoft.Owin.Security.Twitter.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.MicrosoftAccount">
+      <HintPath>..\packages\Microsoft.Owin.Security.MicrosoftAccount.4.0.0\lib\net451\Microsoft.Owin.Security.MicrosoftAccount.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.OAuth">
+      <HintPath>..\packages\Microsoft.Owin.Security.OAuth.4.0.0\lib\net451\Microsoft.Owin.Security.OAuth.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\IdentityConfig.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="App_Start\Startup.Auth.cs" />
+    <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\BookController.cs" />
+    <Compile Include="Controllers\BorrowDayCountController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\ItemBorrowStatusController.cs" />
+    <Compile Include="Controllers\ItemPartyController.cs" />
+    <Compile Include="Controllers\ItemPartyTypeController.cs" />
+    <Compile Include="Controllers\ItemTypeController.cs" />
+    <Compile Include="Controllers\LibraryLocationController.cs" />
+    <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="DatabaseContext\LibraryDbContext.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="GlobalClass.cs" />
+    <Compile Include="Helper\SendOTPmsg.cs" />
+    <Compile Include="Helper\SendWhatsAppMessage.cs" />
+    <Compile Include="Helper\GeneratePasswordForUserRegistration.cs" />
+    <Compile Include="Helper\GetByteDataFromPhotoFile.cs" />
+    <Compile Include="Helper\GetLoggedInUserName.cs" />
+    <Compile Include="Helper\ReadConnectionString.cs" />
+    <Compile Include="Migrations\202103021205008_itemtype.cs" />
+    <Compile Include="Migrations\202103021205008_itemtype.Designer.cs">
+      <DependentUpon>202103021205008_itemtype.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202103021205387_itempartytype.cs" />
+    <Compile Include="Migrations\202103021205387_itempartytype.Designer.cs">
+      <DependentUpon>202103021205387_itempartytype.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202103021206187_itemparty.cs" />
+    <Compile Include="Migrations\202103021206187_itemparty.Designer.cs">
+      <DependentUpon>202103021206187_itemparty.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202103021206524_itemlibrarylocation.cs" />
+    <Compile Include="Migrations\202103021206524_itemlibrarylocation.Designer.cs">
+      <DependentUpon>202103021206524_itemlibrarylocation.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202103021207463_itemborowstatus.cs" />
+    <Compile Include="Migrations\202103021207463_itemborowstatus.Designer.cs">
+      <DependentUpon>202103021207463_itemborowstatus.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202103021208211_itemborrowdaycout.cs" />
+    <Compile Include="Migrations\202103021208211_itemborrowdaycout.Designer.cs">
+      <DependentUpon>202103021208211_itemborrowdaycout.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202103021208570_item.cs" />
+    <Compile Include="Migrations\202103021208570_item.Designer.cs">
+      <DependentUpon>202103021208570_item.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202103021209561_itemphoto.cs" />
+    <Compile Include="Migrations\202103021209561_itemphoto.Designer.cs">
+      <DependentUpon>202103021209561_itemphoto.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202103021210329_itemborrohistories.cs" />
+    <Compile Include="Migrations\202103021210329_itemborrohistories.Designer.cs">
+      <DependentUpon>202103021210329_itemborrohistories.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202103051817226_itemphotoup.cs" />
+    <Compile Include="Migrations\202103051817226_itemphotoup.Designer.cs">
+      <DependentUpon>202103051817226_itemphotoup.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\BorrowStatus.cs" />
+    <Compile Include="Models\IdentityModels.cs" />
+    <Compile Include="Models\Item.cs" />
+    <Compile Include="Models\ItemBorrowDayCount.cs" />
+    <Compile Include="Models\ItemBorrowHistory.cs" />
+    <Compile Include="Models\ItemBorrowStatus.cs" />
+    <Compile Include="Models\ItemLibraryLocation.cs" />
+    <Compile Include="Models\ItemParty.cs" />
+    <Compile Include="Models\ItemPartyType.cs" />
+    <Compile Include="Models\ItemPhoto.cs" />
+    <Compile Include="Models\ItemType.cs" />
+    <Compile Include="Models\ItemTypeName.cs" />
+    <Compile Include="Models\Location.cs" />
+    <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\Model\AspNetUser.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Model\DbModels.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DbModels.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Model\DbModels.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Model\DbModels.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DbModels.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Model\ItemType.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Model\ItemTypeName.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\PartyType.cs" />
+    <Compile Include="Models\ViewModel\ItemTypeVM.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Startup.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="AppFiles\Images\1212135268.jpg" />
+    <Content Include="AppFiles\Images\146157356_3429740857250398_7610700501568688734_o212256004.jpg" />
+    <Content Include="AppFiles\Images\2212230268.jpg" />
+    <Content Include="AppFiles\Images\default.png" />
+    <Content Include="Content\bootstrap-grid.css" />
+    <Content Include="Content\bootstrap-grid.min.css" />
+    <Content Include="Content\bootstrap-reboot.css" />
+    <Content Include="Content\bootstrap-reboot.min.css" />
+    <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\font-awesome.css" />
+    <Content Include="Content\font-awesome.min.css" />
+    <Content Include="Content\IntLte\css\demo.css" />
+    <Content Include="Content\IntLte\css\intlTelInput.css" />
+    <Content Include="Content\IntLte\css\intlTelInput.min.css" />
+    <Content Include="Content\IntLte\img\flags%402x.png" />
+    <Content Include="Content\IntLte\img\flags.png" />
+    <Content Include="Content\IntLte\js\data.js" />
+    <Content Include="Content\IntLte\js\data.min.js" />
+    <Content Include="Content\IntLte\js\intlTelInput-jquery.js" />
+    <Content Include="Content\IntLte\js\intlTelInput-jquery.min.js" />
+    <Content Include="Content\IntLte\js\intlTelInput.js" />
+    <Content Include="Content\IntLte\js\intlTelInput.min.js" />
+    <Content Include="Content\IntLte\js\utils.js" />
+    <Content Include="Content\Sitecss\custom\custom.css" />
+    <Content Include="Content\Sitecss\daterangepicker\daterangepicker.css" />
+    <Content Include="Content\Sitecss\daterangepicker\daterangepicker.js" />
+    <Content Include="Content\Sitecss\daterangepicker\drp.png" />
+    <Content Include="Content\Sitecss\daterangepicker\example\amd\index.html" />
+    <Content Include="Content\Sitecss\daterangepicker\example\amd\main.js" />
+    <Content Include="Content\Sitecss\daterangepicker\example\amd\require.js" />
+    <Content Include="Content\Sitecss\daterangepicker\example\browserify\bundle.js" />
+    <Content Include="Content\Sitecss\daterangepicker\example\browserify\index.html" />
+    <Content Include="Content\Sitecss\daterangepicker\example\browserify\main.js" />
+    <Content Include="Content\Sitecss\daterangepicker\moment.min.js" />
+    <Content Include="Content\Sitecss\daterangepicker\package.js" />
+    <Content Include="Content\Sitecss\daterangepicker\website.css" />
+    <Content Include="Content\Sitecss\daterangepicker\website.js" />
+    <Content Include="Content\Sitecss\daterangepicker\website\index.html" />
+    <Content Include="Content\Sitecss\daterangepicker\website\website.css" />
+    <Content Include="Content\Sitecss\daterangepicker\website\website.js" />
+    <Content Include="Content\Sitecss\dist\css\adminlte.min.css" />
+    <Content Include="Content\Sitecss\fontawesome-free\css\all.css" />
+    <Content Include="Content\Sitecss\fontawesome-free\css\all.min.css" />
+    <Content Include="Content\Sitecss\fontawesome-free\css\brands.css" />
+    <Content Include="Content\Sitecss\fontawesome-free\css\brands.min.css" />
+    <Content Include="Content\Sitecss\fontawesome-free\css\fontawesome.css" />
+    <Content Include="Content\Sitecss\fontawesome-free\css\fontawesome.min.css" />
+    <Content Include="Content\Sitecss\fontawesome-free\css\regular.css" />
+    <Content Include="Content\Sitecss\fontawesome-free\css\regular.min.css" />
+    <Content Include="Content\Sitecss\fontawesome-free\css\solid.css" />
+    <Content Include="Content\Sitecss\fontawesome-free\css\solid.min.css" />
+    <Content Include="Content\Sitecss\fontawesome-free\css\svg-with-js.css" />
+    <Content Include="Content\Sitecss\fontawesome-free\css\svg-with-js.min.css" />
+    <Content Include="Content\Sitecss\fontawesome-free\css\v4-shims.css" />
+    <Content Include="Content\Sitecss\fontawesome-free\css\v4-shims.min.css" />
+    <Content Include="Content\Sitecss\fontawesome-free\webfonts\fa-brands-400.svg" />
+    <Content Include="Content\Sitecss\fontawesome-free\webfonts\fa-regular-400.svg" />
+    <Content Include="Content\Sitecss\fontawesome-free\webfonts\fa-solid-900.svg" />
+    <Content Include="Content\Sitecss\icheck-bootstrap\icheck-bootstrap.css" />
+    <Content Include="Content\Sitecss\icheck-bootstrap\icheck-bootstrap.min.css" />
+    <Content Include="Content\Sitecss\jqvmap\jquery.vmap.js" />
+    <Content Include="Content\Sitecss\jqvmap\jquery.vmap.min.js" />
+    <Content Include="Content\Sitecss\jqvmap\jqvmap.css" />
+    <Content Include="Content\Sitecss\jqvmap\jqvmap.min.css" />
+    <Content Include="Content\Sitecss\jqvmap\maps\continents\jquery.vmap.africa.js" />
+    <Content Include="Content\Sitecss\jqvmap\maps\continents\jquery.vmap.asia.js" />
+    <Content Include="Content\Sitecss\jqvmap\maps\continents\jquery.vmap.australia.js" />
+    <Content Include="Content\Sitecss\jqvmap\maps\continents\jquery.vmap.europe.js" />
+    <Content Include="Content\Sitecss\jqvmap\maps\continents\jquery.vmap.north-america.js" />
+    <Content Include="Content\Sitecss\jqvmap\maps\continents\jquery.vmap.south-america.js" />
+    <Content Include="Content\Sitecss\jqvmap\maps\jquery.vmap.algeria.js" />
+    <Content Include="Content\Sitecss\jqvmap\maps\jquery.vmap.argentina.js" />
+    <Content Include="Content\Sitecss\jqvmap\maps\jquery.vmap.brazil.js" />
+    <Content Include="Content\Sitecss\jqvmap\maps\jquery.vmap.canada.js" />
+    <Content Include="Content\Sitecss\jqvmap\maps\jquery.vmap.croatia.js" />
+    <Content Include="Content\Sitecss\jqvmap\maps\jquery.vmap.europe.js" />
+    <Content Include="Content\Sitecss\jqvmap\maps\jquery.vmap.france.js" />
+    <Content Include="Content\Sitecss\jqvmap\maps\jquery.vmap.germany.js" />
+    <Content Include="Content\Sitecss\jqvmap\maps\jquery.vmap.greece.js" />
+    <Content Include="Content\Sitecss\jqvmap\maps\jquery.vmap.indonesia.js" />
+    <Content Include="Content\Sitecss\jqvmap\maps\jquery.vmap.iran.js" />
+    <Content Include="Content\Sitecss\jqvmap\maps\jquery.vmap.iraq.js" />
+    <Content Include="Content\Sitecss\jqvmap\maps\jquery.vmap.new_regions_france.js" />
+    <Content Include="Content\Sitecss\jqvmap\maps\jquery.vmap.russia.js" />
+    <Content Include="Content\Sitecss\jqvmap\maps\jquery.vmap.serbia.js" />
+    <Content Include="Content\Sitecss\jqvmap\maps\jquery.vmap.tunisia.js" />
+    <Content Include="Content\Sitecss\jqvmap\maps\jquery.vmap.turkey.js" />
+    <Content Include="Content\Sitecss\jqvmap\maps\jquery.vmap.ukraine.js" />
+    <Content Include="Content\Sitecss\jqvmap\maps\jquery.vmap.usa.counties.js" />
+    <Content Include="Content\Sitecss\jqvmap\maps\jquery.vmap.usa.districts.js" />
+    <Content Include="Content\Sitecss\jqvmap\maps\jquery.vmap.usa.js" />
+    <Content Include="Content\Sitecss\jqvmap\maps\jquery.vmap.world.js" />
+    <Content Include="Content\Sitecss\overlayScrollbars\css\OverlayScrollbars.css" />
+    <Content Include="Content\Sitecss\overlayScrollbars\css\OverlayScrollbars.min.css" />
+    <Content Include="Content\Sitecss\overlayScrollbars\js\jquery.overlayScrollbars.js" />
+    <Content Include="Content\Sitecss\overlayScrollbars\js\jquery.overlayScrollbars.min.js" />
+    <Content Include="Content\Sitecss\overlayScrollbars\js\OverlayScrollbars.js" />
+    <Content Include="Content\Sitecss\overlayScrollbars\js\OverlayScrollbars.min.js" />
+    <Content Include="Content\Sitecss\summernote\lang\summernote-ar-AR.js" />
+    <Content Include="Content\Sitecss\summernote\lang\summernote-ar-AR.min.js" />
+    <Content Include="Content\Sitecss\summernote\lang\summernote-ar-AR.min.js.LICENSE.txt" />
+    <Content Include="Content\Sitecss\summernote\lang\summernote-az-AZ.js" />
+    <Content Include="Content\Sitecss\summernote\lang\summernote-az-AZ.min.js" />
+    <Content Include="Content\Sitecss\summernote\lang\summernote-az-AZ.min.js.LICENSE.txt" />
+    <Content Include="Content\Sitecss\summernote\lang\summernote-bg-BG.js" />
+    <Content Include="Content\Sitecss\summernote\lang\summernote-bg-BG.min.js" />
+    <Content Include="Content\Sitecss\summernote\lang\summernote-bg-BG.min.js.LICENSE.txt" />
+    <Content Include="Content\Sitecss\summernote\lang\summernote-ca-ES.js" />
+    <Content Include="Content\Sitecss\summernote\lang\summernote-ca-ES.min.js" />
+    <Content Include="Content\Sitecss\summernote\lang\summernote-ca-ES.min.js.LICENSE.txt" />
+    <Content Include="Content\Sitecss\summernote\lang\summernote-cs-CZ.js" />
+    <Content Include="Content\Sitecss\summernote\lang\summernote-cs-CZ.min.js" />
+    <Content Include="Content\Sitecss\summernote\lang\summernote-cs-CZ.min.js.LICENSE.txt" />
+    <Content Include="Content\Sitecss\summernote\lang\summernote-da-DK.js" />
+    <Content Include="Content\Sitecss\summernote\lang\summernote-da-DK.min.js" />
+    <Content Include="Content\Sitecss\summernote\lang\summernote-da-DK.min.js.LICENSE.txt" />
+    <Content Include="Content\Sitecss\summernote\lang\summernote-de-DE.js" />
+    <Content Include="Content\Sitecss\summernote\lang\summernote-de-DE.min.js" />
+    <Content Include="Content\Sitecss\summernote\lang\summernote-de-DE.min.js.LICENSE.txt" />
+    <Content Include="Content\Sitecss\summernote\lang\summernote-el-GR.js" />
+    <Content Include="Content\Sitecss\summernote\lang\summernote-el-GR.min.js" />
+    <Content Include="Content\Sitecss\summernote\lang\summernote-el-GR.min.js.LICENSE.txt" />
+    <Content Include="Content\Sitecss\summernote\lang\summernote-es-ES.js" />
+    <Content Include="Content\Sitecss\summernote\lang\summernote-es-ES.min.js" />
+    <Content Include="Content\Sitecss\summernote\lang\summernote-es-ES.min.js.LICENSE.txt" />
+    <Content Include="Content\Sitecss\summernote\lang\summernote-es-EU.js" />
+    <Content Include="Content\Sitecss\summernote\lang\summernote-es-EU.min.js" />
+    <Content Include="Content\Sitecss\summernote\lang\summernote-es-EU.min.js.LICENSE.txt" />
+    <Content Include="Content\Sitecss\summernote\lang\summernote-fa-IR.js" />
+    <Content Include="Content\Sitecss\summernote\lang\summernote-fa-IR.min.js" />
+    <Content Include="Content\Sitecss\summernote\lang\summernote-fa-IR.min.js.LICENSE.txt" />
+    <Content Include="Content\Sitecss\summernote\lang\summernote-fi-FI.js" />
+    <Content Include="Content\Sitecss\summernote\lang\summernote-fi-FI.min.js" />
+    <Content Include="Content\Sitecss\summernote\lang\summernote-fi-FI.min.js.LICENSE.txt" />
+    <Content Include="Content\Sitecss\summernote\lang\summernote-fr-FR.js" />
+    <Content Include="Content\Sitecss\summernote\lang\summernote-fr-FR.min.js" />
+    <Content Include="Content\Sitecss\summernote\lang\summernote-fr-FR.min.js.LICENSE.txt" />
+    <Content Include="Content\Sitecss\summernote\lang\summernote-gl-ES.js" />
+    <Content Include="Content\Sitecss\summernote\lang\summernote-gl-ES.min.js" />
+    <Content Include="Content\Sitecss\summernote\lang\summernote-gl-ES.min.js.LICENSE.txt" />
+    <Content Include="Content\Sitecss\summernote\lang\summernote-he-IL.js" />
+    <Content Include="Content\Sitecss\summernote\lang\summernote-he-IL.min.js" />
+    <Content Include="Content\Sitecss\summernote\lang\summernote-he-IL.min.js.LICENSE.txt" />
+    <Content Include="Content\Sitecss\summernote\lang\summernote-hr-HR.js" />
+    <Content Include="Content\Sitecss\summernote\lang\summernote-hr-HR.min.js" />
+    <Content Include="Content\Sitecss\summernote\lang\summernote-hr-HR.min.js.LICENSE.txt" />
+    <Content Include="Content\Sitecss\summernote\lang\summernote-hu-HU.js" />
+    <Content Include="Content\Sitecss\summernote\lang\summernote-hu-HU.min.js" />
+    <Content Include="Content\Sitecss\summernote\lang\summernote-hu-HU.min.js.LICENSE.txt" />
+    <Content Include="Content\Sitecss\summernote\lang\summernote-id-ID.js" />
+    <Content Include="Content\Sitecss\summernote\lang\summernote-id-ID.min.js" />
+    <Content Include="Content\Sitecss\summernote\lang\summernote-id-ID.min.js.LICENSE.txt" />
+    <Content Include="Content\Sitecss\summernote\lang\summernote-it-IT.js" />
+    <Content Include="Content\Sitecss\summernote\lang\summernote-it-IT.min.js" />
+    <Content Include="Content\Sitecss\summernote\lang\summernote-it-IT.min.js.LICENSE.txt" />
+    <Content Include="Content\Sitecss\summernote\lang\summernote-ja-JP.js" />
+    <Content Include="Content\Sitecss\summernote\lang\summernote-ja-JP.min.js" />
+    <Content Include="Content\Sitecss\summernote\lang\summernote-ja-JP.min.js.LICENSE.txt" />
+    <Content Include="Content\Sitecss\summernote\lang\summernote-ko-KR.js" />
+    <Content Include="Content\Sitecss\summernote\lang\summernote-ko-KR.min.js" />
+    <Content Include="Content\Sitecss\summernote\lang\summernote-ko-KR.min.js.LICENSE.txt" />
+    <Content Include="Content\Sitecss\summernote\lang\summernote-lt-LT.js" />
+    <Content Include="Content\Sitecss\summernote\lang\summernote-lt-LT.min.js" />
+    <Content Include="Content\Sitecss\summernote\lang\summernote-lt-LT.min.js.LICENSE.txt" />
+    <Content Include="Content\Sitecss\summernote\lang\summernote-lt-LV.js" />
+    <Content Include="Content\Sitecss\summernote\lang\summernote-lt-LV.min.js" />
+    <Content Include="Content\Sitecss\summernote\lang\summernote-lt-LV.min.js.LICENSE.txt" />
+    <Content Include="Content\Sitecss\summernote\lang\summernote-mn-MN.js" />
+    <Content Include="Content\Sitecss\summernote\lang\summernote-mn-MN.min.js" />
+    <Content Include="Content\Sitecss\summernote\lang\summernote-mn-MN.min.js.LICENSE.txt" />
+    <Content Include="Content\Sitecss\summernote\lang\summernote-nb-NO.js" />
+    <Content Include="Content\Sitecss\summernote\lang\summernote-nb-NO.min.js" />
+    <Content Include="Content\Sitecss\summernote\lang\summernote-nb-NO.min.js.LICENSE.txt" />
+    <Content Include="Content\Sitecss\summernote\lang\summernote-nl-NL.js" />
+    <Content Include="Content\Sitecss\summernote\lang\summernote-nl-NL.min.js" />
+    <Content Include="Content\Sitecss\summernote\lang\summernote-nl-NL.min.js.LICENSE.txt" />
+    <Content Include="Content\Sitecss\summernote\lang\summernote-pl-PL.js" />
+    <Content Include="Content\Sitecss\summernote\lang\summernote-pl-PL.min.js" />
+    <Content Include="Content\Sitecss\summernote\lang\summernote-pl-PL.min.js.LICENSE.txt" />
+    <Content Include="Content\Sitecss\summernote\lang\summernote-pt-BR.js" />
+    <Content Include="Content\Sitecss\summernote\lang\summernote-pt-BR.min.js" />
+    <Content Include="Content\Sitecss\summernote\lang\summernote-pt-BR.min.js.LICENSE.txt" />
+    <Content Include="Content\Sitecss\summernote\lang\summernote-pt-PT.js" />
+    <Content Include="Content\Sitecss\summernote\lang\summernote-pt-PT.min.js" />
+    <Content Include="Content\Sitecss\summernote\lang\summernote-pt-PT.min.js.LICENSE.txt" />
+    <Content Include="Content\Sitecss\summernote\lang\summernote-ro-RO.js" />
+    <Content Include="Content\Sitecss\summernote\lang\summernote-ro-RO.min.js" />
+    <Content Include="Content\Sitecss\summernote\lang\summernote-ro-RO.min.js.LICENSE.txt" />
+    <Content Include="Content\Sitecss\summernote\lang\summernote-ru-RU.js" />
+    <Content Include="Content\Sitecss\summernote\lang\summernote-ru-RU.min.js" />
+    <Content Include="Content\Sitecss\summernote\lang\summernote-ru-RU.min.js.LICENSE.txt" />
+    <Content Include="Content\Sitecss\summernote\lang\summernote-sk-SK.js" />
+    <Content Include="Content\Sitecss\summernote\lang\summernote-sk-SK.min.js" />
+    <Content Include="Content\Sitecss\summernote\lang\summernote-sk-SK.min.js.LICENSE.txt" />
+    <Content Include="Content\Sitecss\summernote\lang\summernote-sl-SI.js" />
+    <Content Include="Content\Sitecss\summernote\lang\summernote-sl-SI.min.js" />
+    <Content Include="Content\Sitecss\summernote\lang\summernote-sl-SI.min.js.LICENSE.txt" />
+    <Content Include="Content\Sitecss\summernote\lang\summernote-sr-RS-Latin.js" />
+    <Content Include="Content\Sitecss\summernote\lang\summernote-sr-RS-Latin.min.js" />
+    <Content Include="Content\Sitecss\summernote\lang\summernote-sr-RS-Latin.min.js.LICENSE.txt" />
+    <Content Include="Content\Sitecss\summernote\lang\summernote-sr-RS.js" />
+    <Content Include="Content\Sitecss\summernote\lang\summernote-sr-RS.min.js" />
+    <Content Include="Content\Sitecss\summernote\lang\summernote-sr-RS.min.js.LICENSE.txt" />
+    <Content Include="Content\Sitecss\summernote\lang\summernote-sv-SE.js" />
+    <Content Include="Content\Sitecss\summernote\lang\summernote-sv-SE.min.js" />
+    <Content Include="Content\Sitecss\summernote\lang\summernote-sv-SE.min.js.LICENSE.txt" />
+    <Content Include="Content\Sitecss\summernote\lang\summernote-ta-IN.js" />
+    <Content Include="Content\Sitecss\summernote\lang\summernote-ta-IN.min.js" />
+    <Content Include="Content\Sitecss\summernote\lang\summernote-ta-IN.min.js.LICENSE.txt" />
+    <Content Include="Content\Sitecss\summernote\lang\summernote-th-TH.js" />
+    <Content Include="Content\Sitecss\summernote\lang\summernote-th-TH.min.js" />
+    <Content Include="Content\Sitecss\summernote\lang\summernote-th-TH.min.js.LICENSE.txt" />
+    <Content Include="Content\Sitecss\summernote\lang\summernote-tr-TR.js" />
+    <Content Include="Content\Sitecss\summernote\lang\summernote-tr-TR.min.js" />
+    <Content Include="Content\Sitecss\summernote\lang\summernote-tr-TR.min.js.LICENSE.txt" />
+    <Content Include="Content\Sitecss\summernote\lang\summernote-uk-UA.js" />
+    <Content Include="Content\Sitecss\summernote\lang\summernote-uk-UA.min.js" />
+    <Content Include="Content\Sitecss\summernote\lang\summernote-uk-UA.min.js.LICENSE.txt" />
+    <Content Include="Content\Sitecss\summernote\lang\summernote-uz-UZ.js" />
+    <Content Include="Content\Sitecss\summernote\lang\summernote-uz-UZ.min.js" />
+    <Content Include="Content\Sitecss\summernote\lang\summernote-uz-UZ.min.js.LICENSE.txt" />
+    <Content Include="Content\Sitecss\summernote\lang\summernote-vi-VN.js" />
+    <Content Include="Content\Sitecss\summernote\lang\summernote-vi-VN.min.js" />
+    <Content Include="Content\Sitecss\summernote\lang\summernote-vi-VN.min.js.LICENSE.txt" />
+    <Content Include="Content\Sitecss\summernote\lang\summernote-zh-CN.js" />
+    <Content Include="Content\Sitecss\summernote\lang\summernote-zh-CN.min.js" />
+    <Content Include="Content\Sitecss\summernote\lang\summernote-zh-CN.min.js.LICENSE.txt" />
+    <Content Include="Content\Sitecss\summernote\lang\summernote-zh-TW.js" />
+    <Content Include="Content\Sitecss\summernote\lang\summernote-zh-TW.min.js" />
+    <Content Include="Content\Sitecss\summernote\lang\summernote-zh-TW.min.js.LICENSE.txt" />
+    <Content Include="Content\Sitecss\summernote\plugin\databasic\summernote-ext-databasic.css" />
+    <Content Include="Content\Sitecss\summernote\plugin\databasic\summernote-ext-databasic.js" />
+    <Content Include="Content\Sitecss\summernote\plugin\hello\summernote-ext-hello.js" />
+    <Content Include="Content\Sitecss\summernote\plugin\specialchars\summernote-ext-specialchars.js" />
+    <Content Include="Content\Sitecss\summernote\summernote-bs4.css" />
+    <Content Include="Content\Sitecss\summernote\summernote-bs4.js" />
+    <Content Include="Content\Sitecss\summernote\summernote-bs4.min.css" />
+    <Content Include="Content\Sitecss\summernote\summernote-bs4.min.js" />
+    <Content Include="Content\Sitecss\summernote\summernote-bs4.min.js.LICENSE.txt" />
+    <Content Include="Content\Sitecss\summernote\summernote-lite.css" />
+    <Content Include="Content\Sitecss\summernote\summernote-lite.js" />
+    <Content Include="Content\Sitecss\summernote\summernote-lite.min.css" />
+    <Content Include="Content\Sitecss\summernote\summernote-lite.min.js" />
+    <Content Include="Content\Sitecss\summernote\summernote-lite.min.js.LICENSE.txt" />
+    <Content Include="Content\Sitecss\summernote\summernote.css" />
+    <Content Include="Content\Sitecss\summernote\summernote.js" />
+    <Content Include="Content\Sitecss\summernote\summernote.min.css" />
+    <Content Include="Content\Sitecss\summernote\summernote.min.js" />
+    <Content Include="Content\Sitecss\summernote\summernote.min.js.LICENSE.txt" />
+    <Content Include="Content\Sitecss\tempusdominus-bootstrap-4\css\tempusdominus-bootstrap-4.css" />
+    <Content Include="Content\Sitecss\tempusdominus-bootstrap-4\css\tempusdominus-bootstrap-4.min.css" />
+    <Content Include="Content\Sitecss\tempusdominus-bootstrap-4\js\tempusdominus-bootstrap-4.js" />
+    <Content Include="Content\Sitecss\tempusdominus-bootstrap-4\js\tempusdominus-bootstrap-4.min.js" />
+    <Content Include="Content\themes\base\accordion.css" />
+    <Content Include="Content\themes\base\all.css" />
+    <Content Include="Content\themes\base\autocomplete.css" />
+    <Content Include="Content\themes\base\base.css" />
+    <Content Include="Content\themes\base\button.css" />
+    <Content Include="Content\themes\base\core.css" />
+    <Content Include="Content\themes\base\datepicker.css" />
+    <Content Include="Content\themes\base\dialog.css" />
+    <Content Include="Content\themes\base\draggable.css" />
+    <Content Include="Content\themes\base\images\ui-bg_flat_0_aaaaaa_40x100.png" />
+    <Content Include="Content\themes\base\images\ui-bg_flat_75_ffffff_40x100.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_55_fbf9ee_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_65_ffffff_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_75_dadada_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_75_e6e6e6_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_95_fef1ec_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_highlight-soft_75_cccccc_1x100.png" />
+    <Content Include="Content\themes\base\images\ui-icons_222222_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_2e83ff_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_444444_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_454545_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_555555_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_777620_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_777777_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_888888_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_cc0000_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_cd0a0a_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_ffffff_256x240.png" />
+    <Content Include="Content\themes\base\jquery-ui.css" />
+    <Content Include="Content\themes\base\jquery-ui.min.css" />
+    <Content Include="Content\themes\base\menu.css" />
+    <Content Include="Content\themes\base\progressbar.css" />
+    <Content Include="Content\themes\base\resizable.css" />
+    <Content Include="Content\themes\base\selectable.css" />
+    <Content Include="Content\themes\base\selectmenu.css" />
+    <Content Include="Content\themes\base\slider.css" />
+    <Content Include="Content\themes\base\sortable.css" />
+    <Content Include="Content\themes\base\spinner.css" />
+    <Content Include="Content\themes\base\tabs.css" />
+    <Content Include="Content\themes\base\theme.css" />
+    <Content Include="Content\themes\base\tooltip.css" />
+    <Content Include="favicon.ico" />
+    <Content Include="fonts\fontawesome-webfont.svg" />
+    <Content Include="Global.asax" />
+    <Content Include="Content\Site.css" />
+    <Content Include="Models\Model\DbModels.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>DbModels.edmx</DependentUpon>
+      <LastGenOutput>DbModels.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\Model\DbModels.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>DbModels.edmx</DependentUpon>
+      <LastGenOutput>DbModels.cs</LastGenOutput>
+    </Content>
+    <Content Include="Scripts\bootstrap.bundle.js" />
+    <Content Include="Scripts\bootstrap.bundle.min.js" />
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Scripts\esm\popper-utils.js" />
+    <Content Include="Scripts\esm\popper-utils.min.js" />
+    <Content Include="Scripts\esm\popper.js" />
+    <Content Include="Scripts\esm\popper.min.js" />
+    <Content Include="Scripts\index.js.flow" />
+    <Content Include="Scripts\esm\popper.min.js.map" />
+    <Content Include="Scripts\esm\popper.js.map" />
+    <Content Include="Scripts\esm\popper-utils.min.js.map" />
+    <Content Include="Scripts\esm\popper-utils.js.map" />
+    <Content Include="Scripts\bootstrap.min.js.map" />
+    <Content Include="Scripts\bootstrap.js.map" />
+    <Content Include="Scripts\bootstrap.bundle.min.js.map" />
+    <Content Include="Scripts\bootstrap.bundle.js.map" />
+    <Content Include="Content\bootstrap.min.css.map" />
+    <Content Include="Content\bootstrap.css.map" />
+    <Content Include="Content\bootstrap-reboot.min.css.map" />
+    <Content Include="Content\bootstrap-reboot.css.map" />
+    <Content Include="Content\bootstrap-grid.min.css.map" />
+    <Content Include="Content\bootstrap-grid.css.map" />
+    <EntityDeploy Include="Models\Model\DbModels.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>DbModels.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\Model\DbModels.edmx.diagram">
+      <DependentUpon>DbModels.edmx</DependentUpon>
+    </Content>
+    <Content Include="fonts\FontAwesome.otf" />
+    <Content Include="fonts\fontawesome-webfont.woff2" />
+    <Content Include="fonts\fontawesome-webfont.woff" />
+    <Content Include="fonts\fontawesome-webfont.ttf" />
+    <Content Include="fonts\fontawesome-webfont.eot" />
+    <Content Include="Content\Sitecss\daterangepicker\bower.json" />
+    <Content Include="Content\Sitecss\daterangepicker\example\browserify\README.md" />
+    <Content Include="Content\Sitecss\fontawesome-free\webfonts\fa-brands-400.eot" />
+    <Content Include="Content\Sitecss\fontawesome-free\webfonts\fa-brands-400.ttf" />
+    <Content Include="Content\Sitecss\fontawesome-free\webfonts\fa-brands-400.woff" />
+    <Content Include="Content\Sitecss\fontawesome-free\webfonts\fa-brands-400.woff2" />
+    <Content Include="Content\Sitecss\fontawesome-free\webfonts\fa-regular-400.eot" />
+    <Content Include="Content\Sitecss\fontawesome-free\webfonts\fa-regular-400.ttf" />
+    <Content Include="Content\Sitecss\fontawesome-free\webfonts\fa-regular-400.woff" />
+    <Content Include="Content\Sitecss\fontawesome-free\webfonts\fa-regular-400.woff2" />
+    <Content Include="Content\Sitecss\fontawesome-free\webfonts\fa-solid-900.eot" />
+    <Content Include="Content\Sitecss\fontawesome-free\webfonts\fa-solid-900.ttf" />
+    <Content Include="Content\Sitecss\fontawesome-free\webfonts\fa-solid-900.woff" />
+    <Content Include="Content\Sitecss\fontawesome-free\webfonts\fa-solid-900.woff2" />
+    <Content Include="Content\Sitecss\icheck-bootstrap\LICENSE" />
+    <Content Include="Content\Sitecss\summernote\font\summernote.eot" />
+    <Content Include="Content\Sitecss\summernote\font\summernote.ttf" />
+    <Content Include="Content\Sitecss\summernote\font\summernote.woff" />
+    <Content Include="Content\Sitecss\summernote\font\summernote.woff2" />
+    <Content Include="Content\Sitecss\summernote\summernote-bs4.js.map" />
+    <Content Include="Content\Sitecss\summernote\summernote-bs4.min.js.map" />
+    <Content Include="Content\Sitecss\summernote\summernote-lite.js.map" />
+    <Content Include="Content\Sitecss\summernote\summernote-lite.min.js.map" />
+    <Content Include="Content\Sitecss\summernote\summernote.js.map" />
+    <Content Include="Content\Sitecss\summernote\summernote.min.js.map" />
+    <None Include="Scripts\jquery-3.3.1.intellisense.js" />
+    <Content Include="Scripts\jquery-3.3.1.js" />
+    <Content Include="Scripts\jquery-3.3.1.min.js" />
+    <Content Include="Scripts\jquery-3.3.1.slim.js" />
+    <Content Include="Scripts\jquery-3.3.1.slim.min.js" />
+    <Content Include="Scripts\jquery-3.3.1.slim.min.map" />
+    <Content Include="Scripts\jquery-3.3.1.min.map" />
+    <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery-ui-1.12.1.js" />
+    <Content Include="Scripts\jquery-ui-1.12.1.min.js" />
+    <Content Include="Scripts\jquery.validate.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\modernizr-2.8.3.js" />
+    <Content Include="Scripts\popper-utils.js" />
+    <Content Include="Scripts\popper-utils.min.js" />
+    <Content Include="Scripts\popper.js" />
+    <Content Include="Scripts\popper.min.js" />
+    <Content Include="Scripts\Scripts.js" />
+    <Content Include="Scripts\src\index.js" />
+    <Content Include="Scripts\src\methods\defaults.js" />
+    <Content Include="Scripts\src\methods\destroy.js" />
+    <Content Include="Scripts\src\methods\disableEventListeners.js" />
+    <Content Include="Scripts\src\methods\enableEventListeners.js" />
+    <Content Include="Scripts\src\methods\placements.js" />
+    <Content Include="Scripts\src\methods\update.js" />
+    <Content Include="Scripts\src\modifiers\applyStyle.js" />
+    <Content Include="Scripts\src\modifiers\arrow.js" />
+    <Content Include="Scripts\src\modifiers\computeStyle.js" />
+    <Content Include="Scripts\src\modifiers\flip.js" />
+    <Content Include="Scripts\src\modifiers\hide.js" />
+    <Content Include="Scripts\src\modifiers\index.js" />
+    <Content Include="Scripts\src\modifiers\inner.js" />
+    <Content Include="Scripts\src\modifiers\keepTogether.js" />
+    <Content Include="Scripts\src\modifiers\offset.js" />
+    <Content Include="Scripts\src\modifiers\preventOverflow.js" />
+    <Content Include="Scripts\src\modifiers\shift.js" />
+    <Content Include="Scripts\src\utils\clockwise.js" />
+    <Content Include="Scripts\src\utils\computeAutoPlacement.js" />
+    <Content Include="Scripts\src\utils\debounce.js" />
+    <Content Include="Scripts\src\utils\find.js" />
+    <Content Include="Scripts\src\utils\findCommonOffsetParent.js" />
+    <Content Include="Scripts\src\utils\findIndex.js" />
+    <Content Include="Scripts\src\utils\getBordersSize.js" />
+    <Content Include="Scripts\src\utils\getBoundaries.js" />
+    <Content Include="Scripts\src\utils\getBoundingClientRect.js" />
+    <Content Include="Scripts\src\utils\getClientRect.js" />
+    <Content Include="Scripts\src\utils\getFixedPositionOffsetParent.js" />
+    <Content Include="Scripts\src\utils\getOffsetParent.js" />
+    <Content Include="Scripts\src\utils\getOffsetRect.js" />
+    <Content Include="Scripts\src\utils\getOffsetRectRelativeToArbitraryNode.js" />
+    <Content Include="Scripts\src\utils\getOppositePlacement.js" />
+    <Content Include="Scripts\src\utils\getOppositeVariation.js" />
+    <Content Include="Scripts\src\utils\getOuterSizes.js" />
+    <Content Include="Scripts\src\utils\getParentNode.js" />
+    <Content Include="Scripts\src\utils\getPopperOffsets.js" />
+    <Content Include="Scripts\src\utils\getReferenceNode.js" />
+    <Content Include="Scripts\src\utils\getReferenceOffsets.js" />
+    <Content Include="Scripts\src\utils\getRoot.js" />
+    <Content Include="Scripts\src\utils\getRoundedOffsets.js" />
+    <Content Include="Scripts\src\utils\getScroll.js" />
+    <Content Include="Scripts\src\utils\getScrollParent.js" />
+    <Content Include="Scripts\src\utils\getStyleComputedProperty.js" />
+    <Content Include="Scripts\src\utils\getSupportedPropertyName.js" />
+    <Content Include="Scripts\src\utils\getViewportOffsetRectRelativeToArtbitraryNode.js" />
+    <Content Include="Scripts\src\utils\getWindow.js" />
+    <Content Include="Scripts\src\utils\getWindowSizes.js" />
+    <Content Include="Scripts\src\utils\includeScroll.js" />
+    <Content Include="Scripts\src\utils\index.js" />
+    <Content Include="Scripts\src\utils\isBrowser.js" />
+    <Content Include="Scripts\src\utils\isFixed.js" />
+    <Content Include="Scripts\src\utils\isFunction.js" />
+    <Content Include="Scripts\src\utils\isIE.js" />
+    <Content Include="Scripts\src\utils\isModifierEnabled.js" />
+    <Content Include="Scripts\src\utils\isModifierRequired.js" />
+    <Content Include="Scripts\src\utils\isNumeric.js" />
+    <Content Include="Scripts\src\utils\isOffsetContainer.js" />
+    <Content Include="Scripts\src\utils\removeEventListeners.js" />
+    <Content Include="Scripts\src\utils\runModifiers.js" />
+    <Content Include="Scripts\src\utils\setAttributes.js" />
+    <Content Include="Scripts\src\utils\setStyles.js" />
+    <Content Include="Scripts\src\utils\setupEventListeners.js" />
+    <Content Include="Scripts\UIAndDataValidation\BookReturnViewScript.js" />
+    <Content Include="Scripts\UIAndDataValidation\BookBorrowViewScript.js" />
+    <Content Include="Scripts\UIAndDataValidation\BookPhotoAddViewScript.js" />
+    <Content Include="Scripts\UIAndDataValidation\BookViewScript.js" />
+    <Content Include="Scripts\umd\popper-utils.js" />
+    <Content Include="Scripts\umd\popper-utils.min.js" />
+    <Content Include="Scripts\umd\popper.js" />
+    <Content Include="Scripts\umd\popper.min.js" />
+    <Content Include="Scripts\VCLScripts.js" />
+    <Content Include="Web.config" />
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Views\Web.config" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Home\About.cshtml" />
+    <Content Include="Views\Home\Contact.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Account\_ExternalLoginsListPartial.cshtml" />
+    <Content Include="Views\Account\ConfirmEmail.cshtml" />
+    <Content Include="Views\Account\ExternalLoginConfirmation.cshtml" />
+    <Content Include="Views\Account\ExternalLoginFailure.cshtml" />
+    <Content Include="Views\Account\ForgotPassword.cshtml" />
+    <Content Include="Views\Account\ForgotPasswordConfirmation.cshtml" />
+    <Content Include="Views\Account\Login.cshtml" />
+    <Content Include="Views\Account\Register.cshtml" />
+    <Content Include="Views\Account\ResetPassword.cshtml" />
+    <Content Include="Views\Account\ResetPasswordConfirmation.cshtml" />
+    <Content Include="Views\Account\SendCode.cshtml" />
+    <Content Include="Views\Account\VerifyCode.cshtml" />
+    <Content Include="Views\Manage\AddPhoneNumber.cshtml" />
+    <Content Include="Views\Manage\ChangePassword.cshtml" />
+    <Content Include="Views\Manage\Index.cshtml" />
+    <Content Include="Views\Manage\ManageLogins.cshtml" />
+    <Content Include="Views\Manage\SetPassword.cshtml" />
+    <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
+    <Content Include="Views\Shared\Lockout.cshtml" />
+    <Content Include="Views\Shared\_LoginPartial.cshtml" />
+    <Content Include="Scripts\umd\popper.min.js.map" />
+    <Content Include="Scripts\umd\popper.js.map" />
+    <Content Include="Scripts\umd\popper.js.flow" />
+    <Content Include="Scripts\umd\popper-utils.min.js.map" />
+    <Content Include="Scripts\umd\popper-utils.js.map" />
+    <Content Include="Scripts\README.md" />
+    <Content Include="Scripts\popper.min.js.map" />
+    <Content Include="Scripts\popper.js.map" />
+    <Content Include="Scripts\popper-utils.min.js.map" />
+    <Content Include="Scripts\popper-utils.js.map" />
+    <Content Include="Views\ItemType\Add.cshtml" />
+    <Content Include="Views\ItemType\GetAll.cshtml" />
+    <Content Include="Views\ItemType\Edit.cshtml" />
+    <Content Include="Views\ItemType\Details.cshtml" />
+    <Content Include="Views\ItemBorrowStatus\Add.cshtml" />
+    <Content Include="Views\ItemBorrowStatus\GetAll.cshtml" />
+    <Content Include="Views\ItemBorrowStatus\Edit.cshtml" />
+    <Content Include="Views\ItemParty\GetAll.cshtml" />
+    <Content Include="Views\ItemParty\Add.cshtml" />
+    <Content Include="Views\ItemParty\Edit.cshtml" />
+    <Content Include="Views\ItemPartyType\GetAll.cshtml" />
+    <Content Include="Views\ItemPartyType\Add.cshtml" />
+    <Content Include="Views\ItemPartyType\Edit.cshtml" />
+    <Content Include="Views\ItemPartyType\Details.cshtml" />
+    <Content Include="Views\ItemParty\Details.cshtml" />
+    <Content Include="Views\LibraryLocation\Add.cshtml" />
+    <Content Include="Views\LibraryLocation\Edit.cshtml" />
+    <Content Include="Views\LibraryLocation\GetAll.cshtml" />
+    <Content Include="Views\BorrowDayCount\GetAll.cshtml" />
+    <Content Include="Views\BorrowDayCount\Add.cshtml" />
+    <Content Include="Views\Book\Add.cshtml" />
+    <Content Include="Views\Book\GetAll.cshtml" />
+    <Content Include="Views\Book\ViewBooks.cshtml" />
+    <Content Include="Views\Book\BorrowReturnList.cshtml" />
+    <Content Include="Views\Book\BookPhotoAddView.cshtml" />
+    <Content Include="Views\Book\AddHistory1.cshtml" />
+    <Content Include="Views\Book\_AddHistory.cshtml" />
+    <Content Include="Views\LibraryLocation\Details.cshtml" />
+    <Content Include="Views\Book\Details.cshtml" />
+    <Content Include="Views\Book\_BorrowView.cshtml" />
+    <Content Include="Views\Book\_ReturnView.cshtml" />
+    <Content Include="Views\Book\_HistoryView.cshtml" />
+    <Content Include="Views\Book\AddPhotoToItem - Copy.cshtml" />
+    <Content Include="Views\Book\Edit.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+    <Folder Include="Models\Models\" />
+    <Folder Include="Scripts\DataBinding\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <TypeScriptCompile Include="Scripts\index.d.ts" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\202103021205008_itemtype.resx">
+      <DependentUpon>202103021205008_itemtype.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202103021205387_itempartytype.resx">
+      <DependentUpon>202103021205387_itempartytype.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202103021206187_itemparty.resx">
+      <DependentUpon>202103021206187_itemparty.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202103021206524_itemlibrarylocation.resx">
+      <DependentUpon>202103021206524_itemlibrarylocation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202103021207463_itemborowstatus.resx">
+      <DependentUpon>202103021207463_itemborowstatus.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202103021208211_itemborrowdaycout.resx">
+      <DependentUpon>202103021208211_itemborrowdaycout.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202103021208570_item.resx">
+      <DependentUpon>202103021208570_item.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202103021209561_itemphoto.resx">
+      <DependentUpon>202103021209561_itemphoto.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202103021210329_itemborrohistories.resx">
+      <DependentUpon>202103021210329_itemborrohistories.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202103051817226_itemphotoup.resx">
+      <DependentUpon>202103051817226_itemphotoup.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\DataAccessLayer\DataAccessLayer.csproj">
+      <Project>{c21c8847-9a52-4f04-8e03-3fb95afff890}</Project>
+      <Name>DataAccessLayer</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DataViewModels\DataViewModels.csproj">
+      <Project>{49c39c5b-bc6c-40a6-993a-0dedc7ae38ca}</Project>
+      <Name>DataViewModels</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.targets" Condition="Exists('$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.targets')" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>57493</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:57493/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+</Project>

@@ -1,0 +1,36 @@
+﻿<link href="~/Content/font-awesome.min.css" rel="stylesheet" />
+
+@model IEnumerable<DataViewModels.ItemBorrowDayCountView>
+
+@{
+    ViewBag.Title = "GetAll";
+}
+
+<h2>Borrow days</h2>
+
+<p>
+    @Html.ActionLink("Add new borrow day", "Add")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.LibraryLocationName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NumberOfDays)
+        </th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.LibraryLocationName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NumberOfDays)
+            </td>
+        </tr>
+    }
+
+</table>

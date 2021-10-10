@@ -1,0 +1,137 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <Name>CommunityLibraryDB</Name>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectVersion>4.1</ProjectVersion>
+    <ProjectGuid>{c5977554-3a48-4ef9-bef2-173a935f55f8}</ProjectGuid>
+    <DSP>Microsoft.Data.Tools.Schema.Sql.Sql130DatabaseSchemaProvider</DSP>
+    <OutputType>Database</OutputType>
+    <RootPath>
+    </RootPath>
+    <RootNamespace>CommunityLibraryDB</RootNamespace>
+    <AssemblyName>CommunityLibraryDB</AssemblyName>
+    <ModelCollation>1033,CI</ModelCollation>
+    <DefaultFileStructure>BySchemaAndSchemaType</DefaultFileStructure>
+    <DeployToDatabase>True</DeployToDatabase>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <TargetLanguage>CS</TargetLanguage>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <SqlServerVerification>False</SqlServerVerification>
+    <IncludeCompositeObjects>True</IncludeCompositeObjects>
+    <TargetDatabaseSet>True</TargetDatabaseSet>
+    <DefaultCollation>SQL_Latin1_General_CP1_CI_AS</DefaultCollation>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <OutputPath>bin\Release\</OutputPath>
+    <BuildScriptName>$(MSBuildProjectName).sql</BuildScriptName>
+    <TreatWarningsAsErrors>False</TreatWarningsAsErrors>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <DefineDebug>false</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <OutputPath>bin\Debug\</OutputPath>
+    <BuildScriptName>$(MSBuildProjectName).sql</BuildScriptName>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">11.0</VisualStudioVersion>
+    <!-- Default to the v11.0 targets path if the targets file for the current VS version is not found -->
+    <SSDTExists Condition="Exists('$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v$(VisualStudioVersion)\SSDT\Microsoft.Data.Tools.Schema.SqlTasks.targets')">True</SSDTExists>
+    <VisualStudioVersion Condition="'$(SSDTExists)' == ''">11.0</VisualStudioVersion>
+  </PropertyGroup>
+  <Import Condition="'$(SQLDBExtensionsRefPath)' != ''" Project="$(SQLDBExtensionsRefPath)\Microsoft.Data.Tools.Schema.SqlTasks.targets" />
+  <Import Condition="'$(SQLDBExtensionsRefPath)' == ''" Project="$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v$(VisualStudioVersion)\SSDT\Microsoft.Data.Tools.Schema.SqlTasks.targets" />
+  <ItemGroup>
+    <Folder Include="Properties" />
+    <Folder Include="dbo\" />
+    <Folder Include="dbo\Tables\" />
+    <Folder Include="Scripts\" />
+    <Folder Include="PublishSettings\" />
+    <Folder Include="dbo\Stored Procedure" />
+  </ItemGroup>
+  <ItemGroup>
+    <Build Include="dbo\Tables\__MigrationHistory.sql" />
+    <Build Include="dbo\Tables\AspNetRoles.sql" />
+    <Build Include="dbo\Tables\AspNetUserClaims.sql" />
+    <Build Include="dbo\Tables\AspNetUserLogins.sql" />
+    <Build Include="dbo\Tables\AspNetUserRoles.sql" />
+    <Build Include="dbo\Tables\AspNetUsers.sql" />
+    <Build Include="dbo\Tables\ItemBorrowDayCount.sql" />
+    <Build Include="dbo\Tables\ItemBorrowHistory.sql" />
+    <Build Include="dbo\Tables\ItemBorrowStatus.sql" />
+    <Build Include="dbo\Tables\ItemLibraryLocation.sql" />
+    <Build Include="dbo\Tables\ItemParty.sql" />
+    <Build Include="dbo\Tables\ItemPartyType.sql" />
+    <Build Include="dbo\Tables\ItemPhoto.sql" />
+    <Build Include="dbo\Tables\Item.sql" />
+    <Build Include="dbo\Tables\ItemType.sql" />
+    <None Include="Scripts\Script.PostDeploymentSeedData.sql" />
+    <Build Include="dbo\Stored Procedure\SP_Item_GetAll.sql" />
+    <Build Include="dbo\Stored Procedure\SP_Item_GetById.sql" />
+    <Build Include="dbo\Stored Procedure\SP_Item_Save.sql" />
+    <Build Include="dbo\Stored Procedure\SP_Item_Delete.sql" />
+    <Build Include="dbo\Stored Procedure\SP_ItemBorrowDayCount_GetById.sql" />
+    <Build Include="dbo\Stored Procedure\SP_ItemBorrowDayCount_Save.sql" />
+    <Build Include="dbo\Stored Procedure\SP_ItemBorrowDayCount_Delete.sql" />
+    <Build Include="dbo\Stored Procedure\SP_ItemHistory_GetAll.sql" />
+    <Build Include="dbo\Stored Procedure\SP_ItemBorrowHistory_GetById.sql" />
+    <Build Include="dbo\Stored Procedure\SP_ItemBorrowHistory_Save.sql" />
+    <Build Include="dbo\Stored Procedure\SP_ItemBorrowHistory_Delete.sql" />
+    <Build Include="dbo\Stored Procedure\SP_ItemBorrowStatus_GetAll.sql" />
+    <Build Include="dbo\Stored Procedure\SP_ItemBorrowStatus_GetById.sql" />
+    <Build Include="dbo\Stored Procedure\SP_ItemBorrowStatus_Save.sql" />
+    <Build Include="dbo\Stored Procedure\SP_ItemBorrowStatus_Delete.sql" />
+    <Build Include="dbo\Stored Procedure\SP_ItemLibraryLocation_GetAll.sql" />
+    <Build Include="dbo\Stored Procedure\SP_ItemLibraryLocation_GetById.sql" />
+    <Build Include="dbo\Stored Procedure\SP_ItemLibraryLocation_Save.sql" />
+    <Build Include="dbo\Stored Procedure\SP_ItemLibraryLocation_Delete.sql" />
+    <Build Include="dbo\Stored Procedure\SP_ItemParty_GetAll.sql" />
+    <Build Include="dbo\Stored Procedure\SP_ItemParty_GetById.sql" />
+    <Build Include="dbo\Stored Procedure\SP_ItemParty_Save.sql" />
+    <Build Include="dbo\Stored Procedure\SP_ItemParty_Delete.sql" />
+    <Build Include="dbo\Stored Procedure\SP_ItemPartyType_GetAll.sql" />
+    <Build Include="dbo\Stored Procedure\SP_ItemPartyType_GetById.sql" />
+    <Build Include="dbo\Stored Procedure\SP_ItemPartyType_Save.sql" />
+    <Build Include="dbo\Stored Procedure\SP_ItemPartyType_Delete.sql" />
+    <Build Include="dbo\Stored Procedure\SP_ItemPhoto_GetAll.sql" />
+    <Build Include="dbo\Stored Procedure\SP_ItemPhoto_Save.sql" />
+    <Build Include="dbo\Stored Procedure\SP_ItemPhoto_Delete.sql" />
+    <Build Include="dbo\Stored Procedure\SP_ItemType_GetAll.sql" />
+    <Build Include="dbo\Stored Procedure\SP_ItemType_GetById.sql" />
+    <Build Include="dbo\Stored Procedure\SP_ItemType_Save.sql" />
+    <Build Include="dbo\Stored Procedure\SP_ItemType_Delete.sql" />
+    <Build Include="dbo\Stored Procedure\SP_ItemParty_GetLibraryManager.sql" />
+    <Build Include="dbo\Stored Procedure\SP_ItemParty_GetLibraryBorrower.sql" />
+    <Build Include="dbo\Stored Procedure\SP_Item_GetAll_With_Photo.sql" />
+    <Build Include="dbo\Stored Procedure\SP_ItemType_GetIdForBook.sql" />
+    <Build Include="dbo\Stored Procedure\SP_ItemBorrowStatus_GetIdForBorrow.sql" />
+    <Build Include="dbo\Stored Procedure\SP_ItemLibrarySetting_CreateForInitialRegistration.sql" />
+    <Build Include="dbo\Stored Procedure\SP_ItemLibrarySetting_DeleteRecentlyCreatedSettingData.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <Build Include="dbo\Stored Procedure\SP_ItemBorrowDayCount_GetAll.sql" />
+    <Build Include="dbo\Stored Procedure\SP_ItemPhoto_GetById.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <RefactorLog Include="CommunityLibraryDB.refactorlog" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="PublishSettings\Shamim_Local_CommunityLibraryDB.publish.xml" />
+    <None Include="PublishSettings\Shamim_Local_DELLG3_CommunityLibraryDB.publish.xml" />
+    <None Include="PublishSettings\Shamim_Local_DELL_XPS_CommunityLibraryDB.publish.publish.xml" />
+  </ItemGroup>
+</Project>

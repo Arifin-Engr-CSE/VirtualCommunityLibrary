@@ -1,0 +1,130 @@
+﻿@model DataAccessLayer.AllBookCount
+@{
+    ViewBag.Title = "Library Manager";
+}
+<div class="row">
+    <div class="col-md-6">
+        <h3 class="bg-light">Library Manger View</h3>
+    </div>
+    <div class="col-md-6">
+        <h2 class="bg-light text-md-right text-sm-center ">@ViewBag.LibName</h2>
+    </div>
+</div>
+
+
+
+<hr />
+
+<div class="container-fluid">
+
+    
+
+    <div class="row m-2">
+        <div class="col-sm-3">
+            <div class="card">
+                <div class="card-header bg-success">
+                    <p class="card-title text-light">Totall Book :  @Model.TotalBookCount </p>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-3">
+            <div class="card">
+                <div class="card-header bg-info">
+                    <p  class="card-title text-light">Curently Available Book : @Model.CurrentlyAvailableBookCount </p>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-3">
+            <div class="card">
+                <div class="card-header bg-warning">
+                    <p class="card-title text-light">Totall Borrow : @Model.TotalBorrowed </p>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-3">
+            <div class="card">
+                <div class="card-header bg-danger">
+                    <p class="card-title text-light">Curently Available Book : @Model.CurrentlyAvailableBookCount </p>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+
+
+
+    <div class="row m-2">
+        <div class="col-md-6">
+
+            <div class="card border-info mb-3" style="">
+                <div class="card-body">
+                    <h5 class="card-title">Manage Books</h5>
+                    <p class="card-text">Check book history, enter book borrow or return data. Add book and photo. View book details.</p>
+                    <a href="/Book/ViewBooks" class="btn btn-primary">Borrow / Return</a>
+                    <a href="/Book/GetAll" class="btn btn-primary">Edit Book</a>
+                    <a href="/Book/Add" class="btn btn-primary">Add Book</a>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="col-md-6">
+
+            <div class="card  border-info mb-3" style="">
+                <div class="card-body">
+                    <h5 class="card-title">Manage Library</h5>
+                    <p class="card-text">Add person related to Library. Edit Library location. Add Borrow Days etc</p>
+                    <a href="/ItemParty/GetAll" class="btn btn-primary">Manage Party</a>
+                    <a href="/LibraryLocation/GetAll" class="btn btn-primary">Edit Library Address</a>
+                    <a href="/BorrowDayCount/GetAll" class="btn btn-primary">Borrow Days</a>
+                </div>
+            </div>
+
+        </div>
+
+        @*</div>
+
+            <div class="row">*@
+
+        <div class="col-md-6">
+
+            <div class="card border-info mb-3" style="">
+                <div class="card-body">
+                    <h5 class="card-title">Library System Data</h5>
+                    <p class="card-text">Essential Library data. Not editable</p>
+                    <a href="/ItemType/GetAll" class="btn btn-primary">Item Type</a>
+                    <a href="/ItemPartyType/GetAll" class="btn btn-primary">Party Type</a>
+                    <a href="/ItemBorrowStatus/GetAll" class="btn btn-primary">Borrow Type</a>
+                </div>
+            </div>
+
+        </div>
+
+
+    </div>
+
+</div>
+
+<script type="text/javascript">
+        $(document).ready(function () {
+            var serviceURL = '/Book/BookCount';
+
+            $.ajax({
+                type: "POST",
+                url: serviceURL,
+                data: param = "",
+                contentType: "application/json; charset=utf-8",
+                dataType: "json",
+                success: successFunc,
+                error: errorFunc
+            });
+
+            function successFunc(data, status) {
+                alert(data);
+            }
+
+            function errorFunc() {
+                alert('error');
+            }
+        });
+</script>

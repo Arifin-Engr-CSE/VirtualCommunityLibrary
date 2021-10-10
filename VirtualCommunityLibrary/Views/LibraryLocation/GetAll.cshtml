@@ -1,0 +1,50 @@
+﻿<link href="~/Content/font-awesome.min.css" rel="stylesheet" />
+
+@model IEnumerable <DataViewModels.ItemLibraryLocationViewForListing>
+
+@{
+    ViewBag.Title = "GetAll";
+}
+
+<h2>Library information</h2>
+
+@*<p>
+    @Html.ActionLink("Create New", "Add")
+</p>*@
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.LibraryLocationName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.LibraryLocationAddress)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.LibraryLocationManagerName)
+        </th>
+        <th>
+            Action
+        </th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.LibraryLocationName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.LibraryLocationAddress)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.LibraryLocationManagerName)
+        </td>
+        <td>
+            @*<a class="btn btn-danger btn-sm" href="/LibraryLocation/Delete?id=@item.LibraryLocationID" onclick="return confirm( 'Are you sure to delete this record ?')"><i class="fa fa-trash fa-lg"></i></a>*@
+            <a href="/LibraryLocation/Edit?id=@item.LibraryLocationID" class="btn btn-primary btn-sm" name="Name"><i class="fa fa-pencil fa-lg"></i></a>
+            <a href="/LibraryLocation/Details?id=@item.LibraryLocationID" class="btn btn-primary btn-sm" name="Name"><i class="fa fa-info-circle fa-lg"></i></a>
+        </td>
+    </tr>
+    }
+
+</table>

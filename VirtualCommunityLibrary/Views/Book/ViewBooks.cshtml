@@ -1,0 +1,131 @@
+﻿<script src="~/Scripts/UIAndDataValidation/BookViewScript.js"></script>
+
+@model IEnumerable<DataViewModels.ItemViewForBorrowReturnPage>
+
+@{
+    /**/
+
+    ViewData["Title"] = "ViewBooks";
+}
+
+<p>
+    <center>  <h2>Avaialable Books</h2> </center>
+</p>
+
+<div class="container">
+    @*<div class="row">*@
+        <div class="row row-cols-1 row-cols-md-3 g-4">
+            @if (Model.Count() > 0)
+            {
+                foreach (var item in Model)
+                {
+                    <div class="col">    
+                        <div class="card">
+                            <div>
+                                @if (item.PhotoBinary != null)
+                                {
+                                    var base64 = Convert.ToBase64String(item.PhotoBinary);
+                                    var imgsrc = string.Format("data:image/png;base64,{0}", base64);
+                                    <img class="card-img-top img-fluid" src="@imgsrc" alt="card image"  style="width: 18rem; height: 20rem;" >
+                                }
+                                else
+                                {
+
+                                <img class="card-img-top img-fluid" src="~/AppFiles/Images/default.png" alt="card image"  style="width: 18rem; height: 20rem;" >
+                                @*<img class="card-img-top" src="https://picsum.photos/200" alt="card image">*@
+
+                                }
+                            </div>
+
+                            <div class="card-body text-center">
+                                <h5 class="card-title" value="@item.ItemName">@item.ItemName</h5>
+                                <p class="card-text" value="@item.ItemMaker">@item.ItemMaker</p>
+                            </div>
+
+                            <div class="card-footer">
+                                <p class="text-center">
+                                    @if (item.BorrowStatus.ToUpper() == "BORROWED")
+                                    {
+
+                                        <a href="#" class="btn btn-danger btn-sm desc" onclick="ShowReturnView(@item.ItemID)"><i class="">Return</i></a>
+
+                                    }
+                                    else
+                                    {
+                                        <a href="#" class="btn btn-success btn-sm desc" onclick="ShowBorrowView(@item.ItemID)"><i class="">Borrow</i></a>
+                                    }
+
+                                    @*Book/item history button*@
+                                    <a href="#" class="btn btn-primary btn-sm desc" onclick="ShowHistoryView(@item.ItemID)"><i class="">History</i></a>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                }
+            }
+
+        @*</div>*@
+    </div>
+</div>
+
+
+@*section for borrow model window*@
+
+<div class="modal fade" id="borrowModal" role="dialog">
+    <div class="modal-dialog">
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="text-center">Borrow A Book</h3>
+            </div>
+            <div class="modal-body" id="borrowModalBody">
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+@*section for return model window*@
+
+<div class="modal fade" id="returnModal" role="dialog">
+    <div class="modal-dialog">
+        Modal content
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="text-center">Return Form</h3>
+            </div>
+            <div class="modal-body" id="returnModalBody">
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+
+@*section for history model window*@
+<div class="modal fade" id="historyModal" role="dialog">
+    <div class="modal-dialog">
+
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="text-center">Book History</h3>
+            </div>
+            <div class="modal-body" id="historyModalBody">
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+
+    </div>
+</div>
+

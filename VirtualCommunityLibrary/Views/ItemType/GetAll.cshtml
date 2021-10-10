@@ -1,0 +1,50 @@
+﻿<link href="~/Content/font-awesome.min.css" rel="stylesheet" />
+
+@model IEnumerable<DataViewModels.ItemTypeView>
+
+@{
+    ViewBag.Title = "GetAll";
+}
+
+<h2>Library item types</h2>
+
+@*<p>
+    @Html.ActionLink("Create New", "Add")
+</p>*@
+<table class="table">
+    <tr>
+        <th>
+            <label>SL#</label>
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ItemTypeName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TypeDescription)
+        </th>
+        <th>
+   
+        </th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.ID)
+            </td >
+            <td >
+                @Html.DisplayFor(modelItem => item.ItemTypeName)
+            </td >
+            <td >
+                @Html.DisplayFor(modelItem => item.TypeDescription)
+            </td >
+            <td>
+                @*<a class="btn btn-danger btn-sm" href="/ItemType/Delete?id=@item.ID" onclick="return confirm( 'Are you sure to delete this record ?')"><i class="fa fa-trash fa-lg"></i></a>*@
+                @*<a href="/ItemType/Edit?id=@item.ID" class="btn btn-primary btn-sm" name="Name"><i class="fa fa-pencil fa-lg"></i></a>*@
+                <a href="/ItemType/Details?id=@item.ID" class="btn btn-primary btn-sm" name="Name"><i class="fa fa-info-circle fa-lg"></i></a>
+            </td>
+        </tr>
+    }
+
+</table>

@@ -1,0 +1,39 @@
+﻿@model IEnumerable<DataViewModels.ItemHistoryView>
+
+
+<h5>@Model.FirstOrDefault().BookName</h5>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.RowID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.EventDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.EventType)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.EventDetail)
+        </th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.RowID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.FormattedEventDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.EventType)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.EventDetail)
+        </td>
+    </tr>
+}
+
+</table>

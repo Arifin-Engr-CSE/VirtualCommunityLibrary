@@ -1,0 +1,42 @@
+﻿@model DataViewModels.ItemPartyTypeView
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>ItemPartyType</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.ItemPartyTypeID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ItemPartyTypeID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PartyTypeName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PartyTypeName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PartyTypeDescription)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PartyTypeDescription)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @*@Html.ActionLink("Edit", "Edit", new { id = Model.ItemPartyTypeID }) |*@
+    @Html.ActionLink("Back to List", "GetAll")
+</p>

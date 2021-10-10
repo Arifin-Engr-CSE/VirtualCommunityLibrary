@@ -1,0 +1,51 @@
+﻿<link href="~/Content/font-awesome.min.css" rel="stylesheet" />
+
+@model IEnumerable<DataViewModels.ItemViewForAdminListing>
+
+@{
+    ViewBag.Title = "GetAll";
+}
+
+<h2>GetAll</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Add")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            <label>Book Name</label>
+        </th>
+        <th>
+            <label>Book Owner</label>
+        </th>
+
+        <th>
+            <label>Current Status</label>
+        </th>
+
+        <th>Action</th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.ItemName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PartyName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.BorrowStatus)
+            </td>
+            <td>
+                @*<a class="btn btn-danger btn-sm" href="" onclick=""><i class="fa fa-trash fa-lg"></i></a>*@
+                <a href="/Book/Edit?id=@item.ItemID" class="btn btn-primary btn-sm" name="Name"><i class="fa fa-pencil fa-lg"></i></a>
+                <a href="/Book/Details?id=@item.ItemID" class="btn btn-primary btn-sm"><i class="fa fa-info-circle fa-lg"></i></a>
+                <a href="/Book/BookPhotoAddView?bookId=@item.ItemID" class="btn btn-primary btn-sm"><i class="fa fa-file-image-o"></i></a>
+            </td>
+        </tr>
+    }
+
+</table>

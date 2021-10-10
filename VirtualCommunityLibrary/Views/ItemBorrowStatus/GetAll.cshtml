@@ -1,0 +1,43 @@
+﻿<link href="~/Content/font-awesome.min.css" rel="stylesheet" />
+
+@model IEnumerable<DataViewModels.ItemBorrowStatusView>
+
+@{
+    ViewBag.Title = "GetAll";
+}
+
+<h2>Borrow Type</h2>
+
+@*<p>
+    @Html.ActionLink("Create New", "Add")
+</p>*@
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.BorrowStatus)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.BorrowDescription)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.LibraryLocationName)
+        </th>
+
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.BorrowStatus)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.BorrowDescription)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LibraryLocationName)
+            </td>
+        </tr>
+    }
+
+</table>

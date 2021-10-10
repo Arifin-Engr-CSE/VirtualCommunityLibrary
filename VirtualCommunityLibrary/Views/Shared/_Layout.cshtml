@@ -1,0 +1,87 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - My ASP.NET Application</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    @RenderSection("head", required: false)
+
+    <!-- CSS File -->
+
+    <link rel="stylesheet" href="Content/plugins/fontawesome-free/css/all.min.css">
+    <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+
+    <link href="~/Content/Sitecss/custom/custom.css" rel="stylesheet" />
+    <link rel="stylesheet" href="Content/Sitecss/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css">
+
+    <link rel="stylesheet" href="Content/Sitecss/icheck-bootstrap/icheck-bootstrap.min.css">
+
+    <link rel="stylesheet" href="Content/Sitecss/jqvmap/jqvmap.min.css">
+
+    <link rel="stylesheet" href="Content/Sitecss/dist/css/adminlte.min.css">
+
+    <link rel="stylesheet" href="Content/Sitecss/overlayScrollbars/css/OverlayScrollbars.min.css">
+
+    <link rel="stylesheet" href="Content/Sitecss/daterangepicker/daterangepicker.css">
+
+    <link rel="stylesheet" href="Content/Sitecss/summernote/summernote-bs4.css">
+    
+
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg bg-dark navbar-dark m-0 p-0 fixed-top">
+        <div class="container">
+            <a href="/Home/Index" class="navbar-brand"><h4><span>Community Library</span></h4></a>
+            <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#myMenu">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="myMenu">
+                <ul class="navbar-nav">
+                    @*<li class="nav-item nav-link">@Html.ActionLink("Item Type", "GetAll", "ItemType")</li>
+                        <li class="nav-item nav-link">@Html.ActionLink("Party Type", "GetAll", "ItemPartyType")</li>
+                        <li class="nav-item nav-link">@Html.ActionLink("Party", "GetAll", "ItemParty")</li>
+                        <li class="nav-item nav-link">@Html.ActionLink("Library", "GetAll", "LibraryLocation")</li>
+                        <li class="nav-item nav-link">@Html.ActionLink("Borrow Status", "GetAll", "ItemBorrowStatus")</li>
+                        <li class="nav-item nav-link">@Html.ActionLink("Borrow Days", "GetAll", "BorrowDayCount")</li>*@
+                    @*<li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Book
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                                <a class="dropdown-item" href="/Book/GetAll">Manage</a>
+                                <a class="dropdown-item" href="/Book/ViewBooks">View</a>
+                            </div>
+                        </li>*@
+                    <li class="nav-item nav-link">@Html.ActionLink("Browse Book", "ViewBooks", "Book")</li>
+                </ul>
+
+                @Html.Partial("_LoginPartial")
+            </div>
+        </div>
+    </nav>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+
+    @Scripts.Render("~/bundles/jquery-ui")
+    @Styles.Render("~/Content/themes/base/css")
+
+    <div class="container body-content">
+        <div></div>
+        @RenderBody()
+        <hr />
+        <footer>
+            <p>&copy; @DateTime.Now.Year - All Rights Reserved By V.Library</p>
+        </footer>
+    </div>
+
+    @RenderSection("scripts", required: false)
+    <script src="~/Scripts/notify.min.js"></script>
+    
+</body>
+
+
+</html>

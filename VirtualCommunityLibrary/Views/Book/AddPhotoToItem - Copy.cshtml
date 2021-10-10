@@ -1,0 +1,66 @@
+﻿<script src="~/Scripts/VCLScripts.js"></script>
+
+@model VirtualCommunityLibrary.Models.ItemPhoto
+
+@{
+    ViewBag.Title = "AddPhotoToItem";
+}
+
+
+<p style="display:none">Model.ItemID = @TempData["id"];</p> 
+
+<h4 style="padding-top:10px;">Add Photo for Book <p style="color:cadetblue">[@TempData["itemName"]]</p> </h4>
+
+@using (Html.BeginForm("AddPhotoToItem", "Book",FormMethod.Post,new { enctype="multipart/form-data"}))
+{
+    @Html.AntiForgeryToken()
+    
+<div class="form-horizontal">
+    <hr />
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.PhotoURL, new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            <img src="@Url.Content(Model.PhotoURL)" style="margin:10px" height="200" width="200" id="imagePreview" />
+            <input type="file" name="ImageUpload" accept="image/jpeg, image/png" onchange="ShowImagePreview(this,document.getElementById('imagePreview'))" />
+
+        </div>
+    </div>
+
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.PhotoPriority, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            Book Cover
+            @Html.RadioButtonFor(model => model.PhotoPriority, 1, new { @checked= "checked" })
+            Other
+            @Html.RadioButtonFor(model => model.PhotoPriority, 2)
+        </div>
+    </div>
+
+    <div class="form-group" style="display:none">
+        @Html.LabelFor(model => model.ItemID, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+
+            @Html.EditorFor(model => Model.ItemID, new { htmlAttributes = new { @class = "form-control" } })
+            
+            @Html.ValidationMessageFor(model => model.CreatedOn, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+   
+
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" value="Create" class="btn btn-success" />
+        </div>
+    </div>
+</div>
+}
+
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

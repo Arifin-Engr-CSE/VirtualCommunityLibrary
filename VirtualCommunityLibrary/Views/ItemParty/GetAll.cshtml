@@ -1,0 +1,56 @@
+﻿<link href="~/Content/font-awesome.min.css" rel="stylesheet" />
+@model IEnumerable<DataViewModels.ItemPartyView>
+
+@{
+    ViewBag.Title = "GetAll";
+}
+
+<h2>GetAll</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Add")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.PartyName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PartyTypeName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PartyMobile)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PartyNoteIfAny)
+        </th>
+        <th>
+            Action
+        </th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.PartyName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PartyTypeName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PartyMobile)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PartyNoteIfAny)
+            </td>
+
+            <td>
+                @*<a class="btn btn-danger btn-sm" href="/ItemParty/Delete?id=@item.ItemPartyID" onclick="return confirm( 'Are you sure to delete this record ?')"><i class="fa fa-trash fa-lg"></i></a>*@
+                <a href="/ItemParty/Edit?id=@item.ItemPartyID" class="btn btn-primary btn-sm" name="Name"><i class="fa fa-pencil fa-lg"></i></a>
+                <a href="/ItemParty/Details?id=@item.ItemPartyID" class="btn btn-primary btn-sm" name="Name"><i class="fa fa-info-circle fa-lg"></i></a>
+            </td>
+        </tr>
+    }
+
+</table>
